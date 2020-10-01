@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "8814dd55-df17-421a-a802-34045bdde494",
+		"name": "Fashimobile API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f3e81882-b5de-40b1-83fb-d83da694ccbd",
+						"exec": [
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "49807562-7180-4f3f-8f80-e31f86598671",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Expected String is present\",function(){\r",
+							"pm.response.to.have.header(\"content-Type\");\r",
+							"});\r",
+							"pm.test(\"response should be okay to process\", function () { \r",
+							"    pm.response.to.not.be.error; \r",
+							"    pm.response.to.not.have.jsonBody(\"error\"); \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"pit@pit.com\",\"password\":\"asdh1233\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/auth/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b569c787-118d-4b91-94ec-37a12e47739c",
+						"exec": [
+							"pm.test(\"Status code is 201 and Created\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"pit@pit.com\",\r\n\"name\":\"ashokk\",\r\n\"password\":\"asdh1233\",\r\n\"gender\": \"Male\",\r\n\"dob\":\"22-03-1990\",\r\n\"mobileNo\":\"9090909090\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/auth/signup",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "140a844a-28e3-4825-b8c0-6612447e432f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2a3e84f3-97c0-44e5-a574-9288711f1afb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b2ca4ae0-ac93-4fce-9ec9-7d6375d7da8e",
+			"key": "url",
+			"value": "http://206.189.140.174:8000"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
