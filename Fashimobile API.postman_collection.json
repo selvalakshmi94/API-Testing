@@ -83,7 +83,8 @@
 							"pm.test(\"Status code is 201 and Created\", function () {\r",
 							"    pm.response.to.have.status(201);\r",
 							"    pm.response.to.have.status(\"Created\");\r",
-							"});"
+							"});\r",
+							"pm.response."
 						],
 						"type": "text/javascript"
 					}
@@ -139,7 +140,7 @@
 	],
 	"variable": [
 		{
-			"id": "b2ca4ae0-ac93-4fce-9ec9-7d6375d7da8e",
+			"id": "e3dfba66-1f18-47c8-8c68-e10e7fa67c5f",
 			"key": "url",
 			"value": "http://206.189.140.174:8000"
 		}
